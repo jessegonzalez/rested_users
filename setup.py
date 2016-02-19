@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-from rested_users import VERSION
+from rested_users import DESCRIPTION, VERSION
 
 
 install_requires = [
@@ -15,7 +15,7 @@ tests_require = [
 ]
 
 config = {
-    'description': 'A REST service to be used to store, fetch, and update user records.',
+    'description': DESCRIPTION,
     'author': 'Jesse Gonzalez',
     'url': 'https://github.com/jessegonzalez/rested_users',
     'author_email': 'jesse.gonzalez.jr@gmail.com',
