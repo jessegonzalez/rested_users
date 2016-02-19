@@ -25,8 +25,8 @@ def test_user_dao_create():
 
     users, user1, user2 = initialize()
 
-    result1 = users.create(user1)
-    result2 = users.create(user2)
+    result1 = users.user_create(user1)
+    result2 = users.user_create(user2)
 
     assert user1 == result1
     assert user2 == result2
@@ -38,11 +38,11 @@ def test_user_dao_get():
 
     users, user1, user2 = initialize()
 
-    result1 = users.create(user1)
-    result2 = users.create(user2)
+    result1 = users.user_create(user1)
+    result2 = users.user_create(user2)
 
-    assert users.get(user1['userid']) == user1
-    assert users.get(user2['userid']) == user2
+    assert users.user_get(user1['userid']) == user1
+    assert users.user_get(user2['userid']) == user2
 
 
 @raises(UserError)
@@ -50,11 +50,11 @@ def test_user_dao_delete():
 
     users, user1, user2 = initialize()
 
-    result1 = users.create(user1)
-    result2 = users.create(user2)
+    result1 = users.user_create(user1)
+    result2 = users.user_create(user2)
 
-    users.delete(user1['userid'])
-    users.get(user1['userid'])
+    users.user_delete(user1['userid'])
+    users.user_get(user1['userid'])
 
     users = None
 
@@ -63,14 +63,14 @@ def test_user_dao_update():
 
     users, user1, user2 = initialize()
 
-    result1 = users.create(user1)
-    result2 = users.create(user2)
+    result1 = users.user_create(user1)
+    result2 = users.user_create(user2)
 
     user1['first_name'] = "first_one"
     user2['first_name'] = "first_two"
 
-    update1 = users.update(user1['userid'], user1)
-    update2 = users.update(user2['userid'], user2)
+    update1 = users.user_update(user1['userid'], user1)
+    update2 = users.user_update(user2['userid'], user2)
 
     assert update1 == user1
     assert update2 == user2
