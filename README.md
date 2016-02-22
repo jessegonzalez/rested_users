@@ -28,6 +28,7 @@ python setup.py test
 Test Application in your Browser
 ----------------------
 ```
+python setup.py install
 python rested_users/app.py
 ```
 
