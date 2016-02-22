@@ -1,8 +1,10 @@
 from rested_users.exceptions import GroupError
 
+
 class GroupDAO(object):
     def __init__(self):
         self.groups = {}
+        super(GroupDAO, self).__init__()
 
     def group_get(self, name):
         try:
@@ -28,7 +30,7 @@ class GroupDAO(object):
         return self.groups[groupname]
 
     def group_update(self, name, data):
-        raise NotImplementedError("GroupDAO.update must be overridden.")
+        raise NotImplementedError("GroupDAO.group_update must be overridden.")
 
     def group_delete(self, name):
-        raise NotImplementedError("GroupDAO.delete must be overridden.")
+        raise NotImplementedError("GroupDAO.group_delete must be overridden.")

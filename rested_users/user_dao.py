@@ -3,6 +3,7 @@ from rested_users.exceptions import UserError
 class UserDAO(object):
     def __init__(self):
         self.users = {}
+        super(UserDAO, self).__init__()
 
     def user_get(self, id):
         try:
