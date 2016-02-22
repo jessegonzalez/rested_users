@@ -14,7 +14,6 @@ def initialize():
 
 
 def test_group_dao_create():
-
     groups, group1, group2 = initialize()
 
     result1 = groups.group_create(group1)
@@ -27,7 +26,6 @@ def test_group_dao_create():
 
 
 def test_group_dao_get():
-
     groups, group1, group2 = initialize()
 
     result1 = groups.group_create(group1)
@@ -44,7 +42,6 @@ def test_group_dao_get():
 
 @raises(GroupError)
 def test_group_dao_delete():
-
     class MockGroupDAO(GroupDAO):
         def group_delete(self, name):
             group = self.group_get(name)
@@ -61,13 +58,11 @@ def test_group_dao_delete():
 
 
 def test_group_dao_update():
-
     class MockGroupDAO(GroupDAO):
         def group_update(self, name, data):
             group = self.group_get(name)
             self.groups[name] = data
             return self.groups[name]
-
 
     groups = MockGroupDAO()
 

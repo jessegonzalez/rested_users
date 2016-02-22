@@ -7,22 +7,19 @@ from rested_users.exceptions import UserError, GroupError
 def initialize():
     users = UserDAO()
     user1 = {"first_name": "first1",
-                  "last_name": "last1",
-                  "userid": "id1",
-                  "groups": []}
+             "last_name": "last1",
+             "userid": "id1",
+             "groups": []}
 
     user2 = {"first_name": "first2",
-                  "last_name": "last2",
-                  "userid": "id2",
-                  "groups": []}
+             "last_name": "last2",
+             "userid": "id2",
+             "groups": []}
 
     return users, user1, user2
 
 
-
-
 def test_user_dao_create():
-
     users, user1, user2 = initialize()
 
     result1 = users.user_create(user1)
@@ -35,7 +32,6 @@ def test_user_dao_create():
 
 
 def test_user_dao_get():
-
     users, user1, user2 = initialize()
 
     result1 = users.user_create(user1)
@@ -47,7 +43,6 @@ def test_user_dao_get():
 
 @raises(UserError)
 def test_user_dao_delete():
-
     users, user1, user2 = initialize()
 
     result1 = users.user_create(user1)
@@ -60,7 +55,6 @@ def test_user_dao_delete():
 
 
 def test_user_dao_update():
-
     users, user1, user2 = initialize()
 
     result1 = users.user_create(user1)

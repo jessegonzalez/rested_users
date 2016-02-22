@@ -1,5 +1,6 @@
 from rested_users.exceptions import UserError
 
+
 class UserDAO(object):
     def __init__(self):
         self.users = {}
@@ -10,7 +11,7 @@ class UserDAO(object):
             return self.users[id]
         except KeyError:
             raise UserError(404, "User with userid '{}' doesn't exist.".format(id))
-    
+
     def user_create(self, data):
 
         try:
@@ -25,7 +26,7 @@ class UserDAO(object):
             raise UserError(409, "User with userid '{}' already exists.".format(userid))
         except KeyError:
             self.users[userid] = data
-    
+
         return data
 
     def user_update(self, id, data):
