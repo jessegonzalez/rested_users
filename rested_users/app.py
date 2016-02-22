@@ -93,6 +93,11 @@ class UserCreate(Resource):
     @api.expect(user, validate=True)
     def post(self):
         args = user_parser.parse_args()
+
+        if args['groups'] is not None:
+            for group in args['groups']:
+                if group not in dao.groups:
+                    api.abort(409, 'One or more provided groups is invalid.')
         try:
             return dao.user_create(args)
         except UserError as e:
