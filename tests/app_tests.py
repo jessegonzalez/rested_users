@@ -27,7 +27,7 @@ def test_user_create():
             'last_name': 'Gonzalez',
             'userid': 'jesse'}
     rv = app.post('/users/', data=user)
-    assert rv.status_code == 200
+    assert rv.status_code == 201
 
     rv = app.post('/users/', data=user)
     assert rv.status_code == 409
@@ -61,7 +61,7 @@ def test_missing_group():
 def test_group_create():
     group = {'name': 'admin'}
     rv = app.post('/groups/', data=group)
-    assert rv.status_code == 200
+    assert rv.status_code == 201
 
     rv = app.post('/groups/', data=group)
     assert rv.status_code == 409
@@ -95,7 +95,7 @@ def test_group_delete():
 
 def test_user_delete():
     rv = app.delete('/users/jesse')
-    assert rv.status_code == 200
+    assert rv.status_code == 204
 
     rv = app.get('/users/jesse')
     assert rv.status_code == 404
